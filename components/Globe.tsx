@@ -23,7 +23,7 @@ export function Globe() {
             A world that moves at your pace.
           </h2>
           <p className="mt-6 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
-            Jesko Jets pairs private aviation with white-glove coordination across every touchpoint.
+            Hairo Jets pairs private aviation with white-glove coordination across every touchpoint.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a className="rounded-full border border-white/20 bg-white px-6 py-3 text-xs uppercase tracking-[0.3em] text-black transition hover:bg-white/90" href="#">

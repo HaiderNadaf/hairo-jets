@@ -1,6 +1,6 @@
-# Jesko Jets Clone Implementation Plan
+# Hairo Jets Clone Implementation Plan
 
-This document is a build blueprint for recreating the visual and interaction style of the Jesko Jets website as a premium cinematic Next.js experience.
+This document is a build blueprint for recreating the visual and interaction style of the Hairo Jets website as a premium cinematic Next.js experience.
 
 It is written for a coding agent and should be treated as the source of truth for implementation.
 
@@ -132,7 +132,7 @@ Build `app/layout.tsx` with:
 
 Suggested metadata:
 
-- Title: Jesko Jets
+- Title: Hairo Jets
 - Description: Premium private aviation and cinematic aerial experiences
 
 ## 7.2 Page Structure
@@ -272,7 +272,7 @@ This is the closing visual anchor and should act as a luxurious atmospheric foot
 
 - Eyebrow: `GLOBAL REACH`
 - Headline: `A world that moves at your pace.`
-- Body: `Jesko Jets pairs private aviation with white-glove coordination across every touchpoint.`
+- Body: `Hairo Jets pairs private aviation with white-glove coordination across every touchpoint.`
 
 ## 9. Performance Strategy
 
@@ -555,7 +555,7 @@ Use or adapt the following copy set:
 
 - Eyebrow: `GLOBAL REACH`
 - Headline: `A world that moves at your pace.`
-- Body: `Jesko Jets pairs private aviation with white-glove coordination across every touchpoint.`
+- Body: `Hairo Jets pairs private aviation with white-glove coordination across every touchpoint.`
 
 ### CTA
 
@@ -572,4 +572,3 @@ If anything is simplified during implementation, preserve:
 - the cinematic pacing,
 - the dark luxury tone,
 - and the frame-driven storytelling.
-
