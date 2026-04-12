@@ -11,7 +11,7 @@ export function HeroScroll() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const srcs = useMemo(() => getFrameList("sequence-1", 80), []);
+  const srcs = useMemo(() => getFrameList("sequence-1", 120), []);
   const { images, firstFrameReady, isLoading, hasTimedOut } =
     useImagePreloader(srcs);
   const [showStaticFallback, setShowStaticFallback] = useState(false);
