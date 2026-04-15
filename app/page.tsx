@@ -4,8 +4,23 @@ import { PlaneMorph } from "@/components/PlaneMorph";
 import { Globe } from "@/components/Globe";
 
 export default function Page() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Airline",
+    name: "Hairo Jets",
+    description:
+      "Premium private aviation with cinematic presentation, discreet coordination, and global reach.",
+    url: "https://hairojets.com",
+    areaServed: "Worldwide",
+    serviceType: "Private jet charter",
+  };
+
   return (
     <main className="bg-[#050505] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <section className="mx-auto flex min-h-screen max-w-7xl items-end px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -22,6 +37,7 @@ export default function Page() {
       </section>
       <HeroScroll />
       <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <h2 className="sr-only">Why choose Hairo Jets</h2>
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-white/45">

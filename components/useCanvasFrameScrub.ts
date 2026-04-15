@@ -31,7 +31,7 @@ export function useCanvasFrameScrub({
   sectionRef,
 }: {
   canvasRef: RefObject<HTMLCanvasElement | null>;
-  images: HTMLImageElement[];
+  images: (HTMLImageElement | null)[];
   sectionRef: RefObject<HTMLElement | null>;
 }) {
   const [progress, setProgress] = useState(0);
@@ -58,7 +58,15 @@ export function useCanvasFrameScrub({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const img = images[Math.round(progress * (images.length - 1))];
+    const index = Math.round(progress * (images.length - 1));
+    let fallback: HTMLImageElement | null = null;
+    for (let i = images.length - 1; i >= 0; i -= 1) {
+      if (images[i]) {
+        fallback = images[i];
+        break;
+      }
+    }
+    const img = images[index] ?? fallback;
     if (!canvas || !img) return;
 
     const ctx = canvas.getContext("2d");

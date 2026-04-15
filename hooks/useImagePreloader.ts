@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const cache = new Map<string, HTMLImageElement>();
 
 export function useImagePreloader(srcs: string[]) {
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [images, setImages] = useState<(HTMLImageElement | null)[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasTimedOut, setHasTimedOut] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -16,7 +16,7 @@ export function useImagePreloader(srcs: string[]) {
     async function preload() {
       setIsLoading(true);
       setError(null);
-      setImages([]);
+      setImages(Array(srcs.length).fill(null));
       setHasTimedOut(false);
 
       timeoutId = setTimeout(() => {
@@ -45,7 +45,13 @@ export function useImagePreloader(srcs: string[]) {
           });
 
         const first = await loadImage(srcs[0]);
-        if (!cancelled && first) setImages([first]);
+        if (!cancelled && first) {
+          setImages((current) => {
+            const next = current.slice();
+            next[0] = first;
+            return next;
+          });
+        }
 
         void Promise.all(
           srcs.slice(1).map(async (src, offset) => {
@@ -54,7 +60,7 @@ export function useImagePreloader(srcs: string[]) {
               setImages((current) => {
                 const next = current.slice();
                 next[offset + 1] = img;
-                return next.filter(Boolean);
+                return next;
               });
             }
           }),
